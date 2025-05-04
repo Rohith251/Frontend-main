@@ -1,0 +1,48 @@
+.password-requirements {
+  background: #f8f9fa;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.password-requirements p {
+  color: #4361ee;
+  font-weight: 500;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 0.85rem;
+}
+
+.password-requirements ul {
+  display: flex;
+  gap: 0.75rem;
+  margin: 0;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.password-requirements ul li {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+  color: #0a0a0a;
+  white-space: nowrap;
+}
+
+.password-requirements ul li i {
+  font-size: 0.9rem;
+  margin-right: 0.25rem;
+}
+
+.text-success {
+  color: #4361ee !important;
+}
+
+.text-muted {
+  color: #0a0a0a !important;
+} 

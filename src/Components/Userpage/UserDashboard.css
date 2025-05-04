@@ -1,0 +1,368 @@
+:root {
+  --primary: #4361ee;
+  --primary-light: #4895ef;
+  --primary-dark: #3a0ca3;
+  --secondary: #7209b7;
+  --accent: #f72585;
+  --success: #4cc9f0;
+  --warning: #f8961e;
+  --danger: #ef233c;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --gray: #6c757d;
+  --gray-light: #e9ecef;
+  --white: #ffffff;
+
+  --sidebar-width: 280px;
+  --navbar-height: 70px;
+  --quick-actions-height: 60px;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+
+  --transition: all 0.3s ease;
+  --border-radius: 12px;
+  --border-radius-sm: 8px;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fb;
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+/* Loading and Error Screens */
+.loading-screen,
+.error-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--white);
+}
+
+.loading-screen h5,
+.error-screen h5 {
+  color: var(--gray);
+  font-weight: 500;
+}
+
+.error-screen .btn {
+  padding: 0.5rem 1.5rem;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Navbar */
+.dashboard-navbar {
+  height: var(--navbar-height);
+  background-color: var(--white);
+  box-shadow: var(--shadow-sm);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+
+.navbar-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.brand-logo i {
+  font-size: 1.5rem;
+  margin-right: 0.75rem;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.user-email {
+  font-size: 0.75rem;
+  color: var(--gray);
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  background: transparent;
+}
+
+.logout-btn:hover {
+  background-color: #dc3545 !important;
+  color: #ffffff !important;
+  border-color: #dc3545 !important;
+}
+
+.logout-btn:hover i {
+  color: #ffffff !important;
+}
+
+.logout-btn i {
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  color: var(--danger);
+}
+
+/* Dashboard Layout */
+.dashboard-layout {
+  display: flex;
+  height: calc(100vh - var(--navbar-height));
+  margin-top: var(--navbar-height);
+  overflow: hidden;
+}
+
+/* Sidebar */
+.dashboard-sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--white);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  position: fixed;
+  top: var(--navbar-height);
+  left: -100%;
+  height: calc(100vh - var(--navbar-height));
+  z-index: 999;
+}
+
+.dashboard-sidebar.open {
+  left: 0;
+}
+
+@media (min-width: 992px) {
+  .dashboard-sidebar {
+    left: 0;
+  }
+}
+
+.sidebar-menu {
+  padding-top: 27px;
+  list-style: none;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.menu-item {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--gray);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: left;
+}
+
+.menu-item i {
+  font-size: 1.25rem;
+  width: 24px;
+}
+
+.menu-item:hover {
+  color: var(--primary);
+  background-color: rgba(67, 97, 238, 0.05);
+}
+
+.menu-item.active {
+  color: var(--primary);
+  background-color: rgba(67, 97, 238, 0.1);
+  border-left: 3px solid var(--primary);
+  font-weight: 600;
+}
+
+.sidebar-footer {
+  padding: 1.5rem;
+  border-top: 1px solid var(--gray-light);
+}
+
+.support-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: rgba(67, 97, 238, 0.05);
+  border-radius: var(--border-radius-sm);
+}
+
+.support-card i {
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+.support-card h6 {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  color: var(--dark);
+}
+
+.support-card p {
+  font-size: 0.75rem;
+  color: var(--gray);
+  margin-bottom: 0;
+}
+
+/* Main Content */
+.dashboard-content {
+  margin-left: 0;
+  padding: 1.5rem;
+  background-color: #f5f7fb;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+}
+
+@media (min-width: 992px) {
+  .dashboard-content {
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+  }
+}
+
+/* Quick Actions (Mobile) */
+.quick-actions {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--quick-actions-height);
+  background-color: var(--white);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000;
+}
+
+.action-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--gray);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: var(--transition);
+  padding: 0.5rem;
+  width: 100%;
+  height: 100%;
+}
+
+.action-btn i {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.action-btn:hover {
+  color: var(--primary);
+}
+
+.action-btn.active {
+  color: var(--primary);
+  background-color: rgba(67, 97, 238, 0.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-content {
+    padding: 1rem;
+  }
+
+  .user-info {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .sidebar-toggle {
+    display: none;
+  }
+
+  .quick-actions {
+    display: none;
+  }
+}

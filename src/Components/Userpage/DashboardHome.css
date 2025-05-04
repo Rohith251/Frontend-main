@@ -1,0 +1,530 @@
+.forex-rates {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.75rem;
+  padding: 0.25rem;
+}
+
+.dashboard-home {
+  padding: 1rem;
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+.forex-rate-item {
+  background: white;
+  border-radius: 10px;
+  padding: 0.75rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.forex-rate-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.forex-rate-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: #4361ee;
+  opacity: 0.8;
+}
+
+.currency-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.currency-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.currency-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.currency {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 0.9rem;
+}
+
+.currency-name {
+  font-size: 0.8rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.trend-indicator {
+  font-size: 1.1rem;
+  padding: 0.35rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trend-indicator.up {
+  color: #2ecc71;
+  background: rgba(46, 204, 113, 0.1);
+}
+
+.trend-indicator.down {
+  color: #e74c3c;
+  background: rgba(231, 76, 60, 0.1);
+}
+
+.rate-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rate {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  letter-spacing: -0.5px;
+}
+
+.price-range {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.price-range small {
+  background: rgba(0, 0, 0, 0.03);
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.change {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+}
+
+.text-success {
+  color: #2ecc71;
+  background: rgba(46, 204, 113, 0.1);
+}
+
+.text-danger {
+  color: #e74c3c;
+  background: rgba(231, 76, 60, 0.1);
+}
+
+.currency-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.25rem;
+}
+
+.volume-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 8px;
+}
+
+.volume-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.volume-label {
+  font-size: 0.75rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.volume-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.btn-outline-primary {
+  border-color: #4361ee;
+  color: #4361ee;
+  font-weight: 500;
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background: #4361ee;
+  color: white;
+  transform: translateY(-1px);
+}
+
+.currency-filters {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.currency-filters .btn {
+  border-radius: 6px;
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.currency-filters .btn:hover {
+  transform: translateY(-1px);
+}
+
+.currency-filters .btn.active {
+  background: #4361ee;
+  color: white;
+  border-color: #4361ee;
+}
+
+.indicators-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 0.5rem;
+}
+
+.indicator-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.indicator-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.indicator-name {
+  text-transform: capitalize;
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 1rem;
+}
+
+.indicator-value {
+  font-weight: 700;
+  color: #2c3e50;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.indicator-value small {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.indicator-trend {
+  margin-left: 0.75rem;
+  font-size: 1.2rem;
+}
+
+.chart-container {
+  height: 400px;
+  position: relative;
+  margin: 1rem 0;
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.chart-controls {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.current-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.change-value {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+}
+
+.change-value.text-success {
+  background: rgba(46, 204, 113, 0.1);
+}
+
+.change-value.text-danger {
+  background: rgba(231, 76, 60, 0.1);
+}
+
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  background: white;
+  margin-bottom: 1rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-title {
+  color: #2c3e50;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-title i {
+  font-size: 1.1rem;
+  color: #4361ee;
+}
+
+.last-updated {
+  font-size: 0.8rem;
+  color: #666;
+  font-weight: 500;
+}
+
+/* Chart specific styles */
+.chart-container canvas {
+  border-radius: 8px;
+}
+
+/* Custom scrollbar for the chart container */
+.chart-container::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.chart-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.chart-container::-webkit-scrollbar-thumb {
+  background: #4361ee;
+  border-radius: 3px;
+}
+
+.chart-container::-webkit-scrollbar-thumb:hover {
+  background: #3a0ca3;
+}
+
+.welcome-section {
+  background: linear-gradient(135deg, #4361ee, #3a0ca3);
+  color: white;
+  padding: 1.25rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(67, 97, 238, 0.15);
+}
+
+.welcome-section:hover {
+  transform: translateY(-5px);
+}
+
+.welcome-section h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.welcome-section p {
+  margin: 0.35rem 0 0;
+  opacity: 0.9;
+  font-size: 0.85rem;
+}
+
+/* Animation for rate changes */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.rate.changed {
+  animation: pulse 0.3s ease-in-out;
+}
+
+/* Chart tooltip styles */
+.chartjs-tooltip {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  pointer-events: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dashboard-home > * {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.dashboard-home > *:nth-child(1) { animation-delay: 0.1s; }
+.dashboard-home > *:nth-child(2) { animation-delay: 0.2s; }
+.dashboard-home > *:nth-child(3) { animation-delay: 0.3s; }
+
+/* Animation for value changes */
+@keyframes valueChange {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.current-value.changed,
+.change-value.changed {
+  animation: valueChange 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .dashboard-home {
+    padding: 0.75rem;
+  }
+
+  .welcome-section {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .welcome-section h2 {
+    font-size: 1.1rem;
+  }
+
+  .forex-rates,
+  .indicators-container {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-container {
+    height: 300px;
+    padding: 1rem;
+  }
+
+  .current-value {
+    font-size: 1.2rem;
+  }
+
+  .change-value {
+    font-size: 0.9rem;
+  }
+
+  .card-body {
+    padding: 0.75rem;
+  }
+
+  .forex-rate-item {
+    padding: 0.75rem;
+  }
+
+  .rate {
+    font-size: 1rem;
+  }
+
+  .currency-filters {
+    display: none;
+  }
+
+  .price-range {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .dashboard-home {
+    background: #1a1a1a;
+  }
+
+  .card {
+    background: #242424;
+  }
+
+  .forex-rate-item {
+    background: #242424;
+    border-color: rgba(255,255,255,0.1);
+  }
+
+  .currency, .rate {
+    color: #fff;
+  }
+
+  .price-range small {
+    background: rgba(255,255,255,0.05);
+    color: #999;
+  }
+
+  .card-title {
+    color: #fff;
+  }
+}
+
+.logout-btn {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.logout-btn i {
+  font-size: 1.1rem;
+}
+  
+  

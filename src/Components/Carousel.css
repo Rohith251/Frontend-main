@@ -1,0 +1,235 @@
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 85vh;
+  overflow: hidden;
+  background: #000;
+  perspective: 1000px;
+}
+.carousel-section{
+
+  position:relative;
+}
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+  transform: translateZ(-100px) rotateY(0deg);
+  backface-visibility: hidden;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  transform: translateZ(0) rotateY(0deg);
+}
+
+.slide-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(to top, 
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.8) 30%,
+    rgba(0, 0, 0, 0.4) 70%,
+    transparent 100%
+  );
+  color: white;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), 
+              opacity 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carousel-slide.active .slide-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.slide-content h2 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: -0.5px;
+  animation: titleReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+.slide-content p {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  animation: textReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  min-width: 20px;
+  min-height: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: white;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+}
+
+.carousel-container:hover .carousel-control {
+  opacity: 1;
+}
+
+.carousel-control:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.carousel-control.prev {
+  left: 8px;
+}
+
+.carousel-control.next {
+  right: 8px;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+  padding: 0;
+  margin: 0;
+}
+
+.indicator {
+  width: 6px;
+  height: 6px;
+  min-width: 6px;
+  min-height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  margin: 0;
+}
+
+.indicator.active {
+  background: white;
+  transform: scale(1.2);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.indicator:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
+/* Custom Animations */
+@keyframes titleReveal {
+  from {
+    transform: translateY(50px) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes textReveal {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .carousel-container {
+    height: 70vh;
+  }
+
+  .slide-content {
+    padding: 1rem;
+  }
+
+  .slide-content h2 {
+    font-size: 2.8rem;
+  }
+
+  .slide-content p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    height: 60vh;
+  }
+
+  .slide-content {
+    padding: 1rem;
+  }
+
+  .slide-content h2 {
+    font-size: 2.2rem;
+  }
+
+  .slide-content p {
+    font-size: 1.1rem;
+  }
+
+  .carousel-control {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    opacity: 1;
+  }
+
+  .carousel-indicators {
+    bottom: 20px;
+  }
+
+  .indicator {
+    width: 8px;
+    height: 8px;
+  }
+}
+
