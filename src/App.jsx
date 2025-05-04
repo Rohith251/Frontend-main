@@ -16,7 +16,7 @@ import CardDetailsPage from './Components/Userpage/CardDetailsPage.jsx';
 import BlockedCardPage from './Components/Userpage/BlockedCardPage.jsx';
 import Profile from './Components/Userpage/Profile.jsx';
 import MakePayment from './Components/Userpage/MakePayment.jsx';
-import TransactionHistory from './Components/Userpage/TransactionHistory.jsx';
+import TransactionHistory from './Components/Userpage/Transactionhistory.jsx';
 import ForgotPassword from './Components/ForgetPassword.jsx';
 import ForexDashboard from './Components/Userpage/ForexDashboard.jsx';
 import AuditorHomePage from './Components/Auditor/Home.jsx';
