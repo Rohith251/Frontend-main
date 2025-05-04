@@ -1,12 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        DOCKER_IMAGE = 'rohith0702/forex-frontend'
-        DOCKER_TAG = 'latest'
-        DOCKER_CREDENTIALS_ID = 'docker-hub-credentials'
-    }
-
     stages {
         stage('Checkout') {
             steps {
@@ -14,35 +8,28 @@ pipeline {
             }
         }
 
-        stage('Build Frontend') {
+        stage('Install & Build') {
             steps {
                 sh 'npm install'
                 sh 'npm run build'
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Docker Build') {
             steps {
-                sh 'docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} .'
+                sh 'docker build -t rohith0702/forex-frontend:latest .'
             }
         }
 
-        stage('Push Docker Image') {
+        stage('Push to Docker Hub') {
             steps {
-                withCredentials([usernamePassword(credentialsId: "${DOCKER_CREDENTIALS_ID}", usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                withCredentials([string(credentialsId: 'docker-hub-password', variable: 'DOCKER_PASSWORD')]) {
                     sh '''
-                    echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-                    docker push ${DOCKER_IMAGE}:${DOCKER_TAG}
+                        echo $DOCKER_PASSWORD | docker login -u rohith0702 --password-stdin
+                        docker push rohith0702/forex-frontend:latest
                     '''
                 }
             }
         }
-
-        // stage('Deploy') {
-        //     steps {
-        //         sh 'docker-compose down || true'
-        //         sh 'docker-compose up -d'
-        //     }
-        // }
     }
 }
